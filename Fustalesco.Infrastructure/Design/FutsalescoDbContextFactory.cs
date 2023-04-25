@@ -16,7 +16,7 @@ namespace Fustalesco.Infrastructure.Design
             var optionsBuilder = new DbContextOptionsBuilder<FutsalescoDbContext>();
 
             //var connectionString = "Data Source=(local)\\;Initial Catalog;Integrated Security=True";
-            var connectionString = "Server=(local);Database=Fustalesco;Integrated Security=True";
+            var connectionString = "Server=(local);Database=Fustalesco;TrustServerCertificate=True;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString, options => {});
 
             return new FutsalescoDbContext(optionsBuilder.Options);

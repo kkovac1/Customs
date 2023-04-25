@@ -18,7 +18,7 @@ namespace Fustalesco.Infrastructure.Entities
         public long TeamTwoId { get; set; }
         public Team TeamTwo { get; set; }
 
-        public int? WinningTeamId { get; set; }
+        public long? WinningTeamId { get; set; }
         public Team WinningTeam { get; set; }
 
         public int Round { get; set; }

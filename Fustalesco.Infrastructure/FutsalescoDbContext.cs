@@ -20,6 +20,15 @@ namespace Fustalesco.Infrastructure
             modelBuilder.Entity<Player>()
                 .HasKey(p => p.Id);
 
+            modelBuilder.Entity<Match>()
+                .HasKey(p => p.Id);
+
+            modelBuilder.Entity<Tournament>()
+                .HasKey(p => p.Id);
+
+            modelBuilder.Entity<Result>()
+                .HasKey(p => p.Id);
+
             // Vise Playera moze biti u jednom Teamu
             modelBuilder.Entity<Player>()
                 .HasOne(p => p.Team)
@@ -35,12 +44,14 @@ namespace Fustalesco.Infrastructure
             modelBuilder.Entity<Match>()
                 .HasOne(m => m.TeamOne)
                 .WithMany()
-                .HasForeignKey(m => m.TeamOneId);
+                .HasForeignKey(m => m.TeamOneId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Match>()
                 .HasOne(m => m.TeamTwo)
                 .WithMany()
-                .HasForeignKey(m => m.TeamTwoId);
+                .HasForeignKey(m => m.TeamTwoId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Vise Teamova moze biti u jednom tournamentu
             modelBuilder.Entity<Team>()
